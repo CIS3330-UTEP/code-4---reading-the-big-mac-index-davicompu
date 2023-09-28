@@ -11,7 +11,7 @@ def get_big_mac_price_by_year(year,country_code): #NEED TO SOLVE CASE SENSITIVIT
 
 def get_big_mac_price_by_country(country_code):
     df = pd.read_csv('big-mac-full-index.csv')
-    query2 = f"(iso_a3 == '{country_code}')"
+    query2 = f"(iso_a3 == '{country_code.upper()}')"
     query2_result = df.query(query2)
     mean_price_overall2dec = round(query2_result['dollar_price'].mean(),2)
     return mean_price_overall2dec
